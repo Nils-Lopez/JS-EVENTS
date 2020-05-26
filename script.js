@@ -102,9 +102,19 @@
 //Changer l'ordre des cards (fonctionnalité 7) :
 
 	let btngrey = document.getElementsByClassName("my-2")[1];
-	
+	let row = document.getElementsByClassName("row")[1];
 	function changeOrder() {
-		
+		let lastCard = row.children[row.children.length - 1];
+		row.insertBefore(lastCard, row.children[0]);
 	}
-
 	btngrey.addEventListener("click", changeOrder);
+
+//Changer l'ordre des cards (fonctionnalité 8) :
+
+	let btnblue = document.getElementsByClassName("my-2")[0];
+	btnblue.removeAttribute("href");
+	function rollbackOrder() {
+		let firstCard = row.children[0];
+		row.insertBefore(firstCard, null);
+	}
+	btnblue.addEventListener("click", rollbackOrder);
